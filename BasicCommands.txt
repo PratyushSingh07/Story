@@ -1,0 +1,197 @@
+**********************This are the Basic Version Control Commands that are used to commit , add and checkout*************
+
+**********************Refer to the folder num 21 and file 2 of "The complete Web Dev Bootcamp" By angela yu***************
+
+
+
+user@DESKTOP-GCC85AD MINGW64 ~
+$ cd Desktop/
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop
+$ mkdir story
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop
+$ touch chapter1.txt
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop
+$ cd story/
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story
+$ touch chapter1.txt
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story
+$ open chapter1.txt
+bash: open: command not found
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story
+$ git init
+Initialized empty Git repository in C:/Users/user/Desktop/story/.git/
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ ls -a
+./  ../  .git/  chapter1.txt
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git add chapter1.txt
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   chapter1.txt
+
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git commit -m "complete chapter 1"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'user@DESKTOP-GCC85AD.(none)')
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git log
+fatal: your current branch 'master' does not have any commits yet
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$  git config --global user.email "aries.pratyush@gmail.com"
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git config --global user.name "Pratyush Singh"
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git commit -m "complete chapter 1"
+[master (root-commit) 67902d0] complete chapter 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 chapter1.txt
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git log
+commit 67902d0a5b7acad877bd454c865ac35e7b658fb9 (HEAD -> master)
+Author: Pratyush Singh <aries.pratyush@gmail.com>
+Date:   Sun Oct 10 18:29:30 2021 +0530
+
+    complete chapter 1
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ touch chapter2.txt
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ touch chapter3.txt
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter2.txt
+        chapter3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git add chapter2.txt
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git add chapter3.txt
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   chapter2.txt
+        new file:   chapter3.txt
+
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git commit -m "Chapter 2 and 3"
+[master 1d6df96] Chapter 2 and 3
+ 2 files changed, 2 insertions(+)
+ create mode 100644 chapter2.txt
+ create mode 100644 chapter3.txt
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git log
+commit 1d6df96300c30fa96d03e18c5dd294bb6909ad31 (HEAD -> master)
+Author: Pratyush Singh <aries.pratyush@gmail.com>
+Date:   Sun Oct 10 18:34:10 2021 +0530
+
+    Chapter 2 and 3
+
+commit 67902d0a5b7acad877bd454c865ac35e7b658fb9
+Author: Pratyush Singh <aries.pratyush@gmail.com>
+Date:   Sun Oct 10 18:29:30 2021 +0530
+
+    complete chapter 1
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   chapter3.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git diff chapter3.txt
+diff --git a/chapter3.txt b/chapter3.txt
+index eba249a..d389326 100644
+--- a/chapter3.txt
++++ b/chapter3.txt
+@@ -1 +1 @@
+-This is the 3rd chapter
++blaah blaah
+\ No newline at end of file
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git checkout chapter3.txt
+Updated 1 path from the index
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$ git log
+commit 1d6df96300c30fa96d03e18c5dd294bb6909ad31 (HEAD -> master)
+Author: Pratyush Singh <aries.pratyush@gmail.com>
+Date:   Sun Oct 10 18:34:10 2021 +0530
+
+    Chapter 2 and 3
+
+commit 67902d0a5b7acad877bd454c865ac35e7b658fb9
+Author: Pratyush Singh <aries.pratyush@gmail.com>
+Date:   Sun Oct 10 18:29:30 2021 +0530
+
+    complete chapter 1
+
+user@DESKTOP-GCC85AD MINGW64 ~/Desktop/story (master)
+$
